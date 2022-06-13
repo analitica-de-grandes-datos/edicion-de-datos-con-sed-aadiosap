@@ -41,3 +41,5 @@
 #
 #  >>> Escriba su codigo a partir de este punto <<<
 #
+sed "s/\n/\N/g" data.csv
+
