@@ -41,5 +41,7 @@
 #
 #  >>> Escriba su codigo a partir de este punto <<<
 #
-sed "s/\n/\N/g" data.csv
+sed "s/n/N/g" datos.txt
+sed "s/,/\./g"
 
+# como cambiar ;N por ;\N
