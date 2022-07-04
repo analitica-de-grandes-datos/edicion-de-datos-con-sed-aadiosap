@@ -41,14 +41,7 @@
 #
 #  >>> Escriba su codigo a partir de este punto <<<
 #
-sed "s/n/N/g" data.csv > b.csv
-sed "s/,/\./g" b.csv > output2.csv
-# como cambiar ;N por ;\N?
-# sed "s/n/N/g" | sed "s/,/\./g" | sed "s/\([0-9]*\)\/\([0-9]*\)\/\([0-9]*\);/20\3\/\2\/\1;/g" data.csv > output.csv
-##--------------------------------
-# sed "s/n/N/g" cambiar n por N
-# sed "s/,/\./g" cambiar , por .
-# sed "s/\([0-9]*\)\/\([0-9]*\)\/\([0-9]*\);/20\3\/\2\/\1;/g" cambiar posición y añadir año
-# sed "s/\//-/g" cambiar / por -
-# sed "s/;;/;\N;/g" llenar campos vacios con \N
-# sed "s/;/,/g" cambiar ; por ,
+sed 's/,/./g' data.csv \
+        |sed 's/;/,/g'\
+        |sed -E 's,([0-9]{2})/([0-9]{2})/([0-9]{2}),20\3-\2-\1,g' \
+        |sed -E 's,([0-9]{1})/([0-9]{1})/([0-9]{4}),\3-0\2-0\1,g' \
