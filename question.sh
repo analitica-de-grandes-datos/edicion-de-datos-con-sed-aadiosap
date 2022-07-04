@@ -41,6 +41,7 @@
 #
 #  >>> Escriba su codigo a partir de este punto <<<
 #
+
 sed 's/,/./g' data.csv \
         |sed 's/;/,/g'\
         |sed -E 's,([0-9]{2})/([0-9]{2})/([0-9]{2}),20\3-\2-\1,g' \
